@@ -68,9 +68,12 @@
             });
             controller.students = students;
         });
+        $scope.reset = function(){
+            window.history.back();
+        }
     });
     
-    app.controller('AssessmentsEditController', function (UrlResource) {
+    app.controller('AssessmentsEditController', function (UrlResource, $scope) {
         var controller = this;
         UrlResource.query({pageUrl: 'subjects'}, function (data) {
             var subjects = {};
@@ -86,5 +89,8 @@
             });
             controller.students = students;
         });
+        $scope.reset = function(){
+            window.history.back();
+        }
     });
 }());
