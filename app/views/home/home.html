@@ -1,0 +1,75 @@
+<form class="search-form">
+    <fieldset class="scheduler-border">
+        <legend  class="scheduler-border">Търсене:</legend>
+        <label for="nameField" class="col-md-3 text-right">
+            Име:
+        </label>
+        <input type="search" name="name" class="form-control" id="nameField"/>
+        <label class=" col-md-3 text-right">
+            Специалност:
+        </label> 
+        <select class="form-control">
+            <option ng-repeat="speciality in HomeCtrl.specialies">{{speciality.nameLong}}</option>
+        </select>
+        <label class="col-md-3 text-right">
+            Курс: 
+        </label>
+        <select class="form-control courses">
+            <option ng-repeat="course in HomeCtrl.courses">{{course.name}}</option>
+        </select>
+        <button class="btn btn-info">Search</button>
+    </fieldset>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td></td>
+            <td colspan="2"></td>
+            <td colspan="12">Предмети (хорариум и оценки)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="2"></td>
+            <td colspan="3">Математика</td>
+            <td colspan="3">Информатика</td>
+            <td colspan="3">Физика</td>
+            <td colspan="3">Общо</td>
+        </tr>
+        <tr class="header">
+            <td class="id">#</td>
+            <td>Име, Фамилия</td>
+            <td>Курс</td>
+            <td>Лекции</td>
+            <td>Упражнения</td>
+            <td>Оценки</td>
+            <td>Лекции</td>
+            <td>Упражнения</td>
+            <td>Оценки</td>
+            <td>Лекции</td>
+            <td>Упражнения</td>
+            <td>Оценки</td>
+            <td>Ср. успех</td>
+            <td>Лекции</td>
+            <td>Упражнения</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="student in HomeCtrl.students">
+            <td>{{student.id}}</td>
+            <td class="names">{{student.firstName + ' ' + student.lastName + ' (' + student.facultyNumber + ')'}}</td>
+            <td>{{HomeCtrl.courses[student.courseId].name + ', ' + HomeCtrl.specialies[student.specialityId].nameShort + ', (' + student.educationForm + ')'}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+            <td>{{}}</td>
+        </tr>
+    </tbody>
+</table>

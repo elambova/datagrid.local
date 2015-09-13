@@ -1,0 +1,34 @@
+<header>
+    <a href="#/specialties/add" class="new btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp; Нова</a>
+</header>
+<form class="search-form">
+    <label for="nameFieldCourse" class="col-md-3 text-right">Име:</label>
+    <span class="glyphicon glyphicon-search"></span>
+    <input type="search" name="name" class="form-control" id="nameFieldCourse" />
+    <button class="btn btn-info">Търси</button>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr class="header">
+            <td class="id">#</td>
+            <td>Пълно име</td>
+            <td>Абривиатура</td>
+            <td class="options">Операции</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="speciality in SpecialtiesCtrl.specialies">
+            <td>{{speciality.id}}</td>
+            <td>{{speciality.nameLong}}</td>
+            <td>{{speciality.nameShort}}</td>
+            <td>
+                <a href="#/specialties/edit" class="btn btn-default options-button">
+                    <img src="icons/edit.png" alt="Edit Icon" title="Edit" class="icon"/>
+                </a>
+                <a href="#" class="btn btn-default options-button">
+                    <img src="icons/delete.png" alt="Delete Icon" title="Delete" class="icon"/>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+<header>
+    <a href="#/courses/add" class="new btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp;Нов</a>
+</header>
+<form class="search-form">
+    <label for="nameFieldCourse" class="col-md-3 text-right">Име:</label>
+    <span class="glyphicon glyphicon-search"></span>
+    <input type="search" name="name" class="form-control" id="nameFieldCourse" />
+    <button class="btn btn-info">Търси</button>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr class="header">
+            <td class="id">#</td>
+            <td>Име</td>
+            <td class="options">Операции</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="course in CourseCtrl.courses| orderBy:'id'">
+            <td>{{course.id}}</td>
+            <td>{{course.name}}</td>
+            <td>
+                <a href="#/courses/edit" class="btn btn-default options-button">
+                    <img src="icons/edit.png" alt="Edit Icon" title="Edit" class="icon"/>
+                </a>
+                <a href="#" class="btn btn-default options-button">
+                    <img src="icons/delete.png" alt="Delete Icon" title="Delete" class="icon"/>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

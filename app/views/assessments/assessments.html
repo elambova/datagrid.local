@@ -1,0 +1,42 @@
+<header>
+    <a href="#/assessments/add" class="new btn btn-default"><span class="glyphicon glyphicon-plus"></span>&nbsp; Нова</a>
+</header>
+<form class="search-form">
+    <fieldset class="scheduler-border">
+        <legend  class="scheduler-border">Търсене:</legend>
+        <label for="nameFieldAssessment" class="col-md-3 text-right">Име:</label>
+        <input type="search" name="name" class="form-control" id="nameFieldAssessment"/>
+        <label class=" col-md-3 text-right">Дисциплина:</label>
+        <select class="form-control speciality">
+            <option ng-repeat="speciality in AssessmentsCtrl.specialies">{{speciality.nameLong}}</option>
+        </select>
+        <button class="btn btn-info">Търси</button>
+    </fieldset>
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr class="header">
+            <td class="id">#</td>
+            <td>Име, Фамилия</td>
+            <td>Дисциплина</td>
+            <td>Оценка</td>
+            <td class="options">Операции</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="assessment in AssessmentsCtrl.assessments">
+            <td>{{assessment.id}}</td>
+            <td>{{AssessmentsCtrl.students[assessment.studentId].firstName + ' ' + AssessmentsCtrl.students[assessment.studentId].lastName}}</td>
+            <td>{{AssessmentsCtrl.subjects[assessment.subjectId].name}}</td>
+            <td>{{assessment.assessment}}</td>
+            <td>
+                <a href="#/assessments/edit" class="btn btn-default options-button">
+                    <img src="icons/edit.png" alt="Edit Icon" title="Edit" class="icon"/>
+                </a>
+                <a href="#" class="btn btn-default options-button">
+                    <img src="icons/delete.png" alt="Delete Icon" title="Delete" class="icon"/>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

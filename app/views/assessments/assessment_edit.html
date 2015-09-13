@@ -1,0 +1,28 @@
+<form class="edit-form">
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Редактиране на оценка</legend>
+        <label class="col-md-3 text-right">Име:</label>
+        <input id="students" list="suggestions" class="form-control">
+        <datalist id="suggestions">
+            <option ng-repeat="student in AssessmentsEditCtrl.students" value="{{student.id}}">{{student.firstName + ' ' + student.lastName}}</option>
+        </datalist>
+        <label class="col-md-3 text-right">Дисциплина:</label>
+        <select class="form-control">
+            <option ng-repeat="subject in AssessmentsEditCtrl.subjects" value="{{subject.id}}">{{subject.name}}</option>
+        </select>
+        <label class="col-md-3 text-right">Хорариум (Л):</label>
+        <input type="text" name="lection" class="form-control small"/>
+        <label class="col-md-3 text-right">Хорариум (У):</label>
+        <input type="text" name="exercise" class="form-control small"/>
+        <label class="col-md-3 text-right">Оценка:</label>
+        <select class="form-control small">
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select>
+        <button type="submit" value="Submit" class="btn btn-success pull-right">Редактирай</button>
+        <button type="reset" value="Reset" class="btn btn-danger pull-right">Откажи</button>
+    </fieldset>
+</form>

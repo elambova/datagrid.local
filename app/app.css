@@ -1,0 +1,95 @@
+/* app css stylesheet */
+
+body{
+    margin: 1%;
+    padding: 1%;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: #ebebff;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+    text-decoration: underline;
+}
+.search-form, .add-form, .edit-form{
+    width: 50%;
+    margin: 5% auto;
+}
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+.form-control{
+    width: 45%; 
+    margin: 1% 0;
+}
+.courses, .speciality, #nameFieldCourse, #nameFieldDisciplines,
+#emailFieldUser {
+    display: inline-block;
+    margin-right: 5%;
+}
+label{
+    margin-top: 2%;
+}
+table{
+    width: 100%;
+}
+.names{
+    text-align: justify;
+}
+tbody tr:nth-child(2n){
+    background-color: #ccc;
+}
+.header{
+    background-color: #999;
+    color: #fff;
+}
+.new{
+    position: absolute;
+    top: 100px;
+    right: 5%;
+    border-radius: 5px;
+}
+.glyphicon-plus{
+    color: #eadeff;
+    text-shadow: 0px 0px 3px #000;
+    margin-right: 0%;
+}
+.glyphicon-search{
+    left: 5%;
+    top: 5px;
+}
+.icon{
+    width: 20px;
+    height: 20px;
+}
+.id{
+    width: 2%;
+}
+.options{
+    width: 5%;
+}
+.options-button{
+    padding: 0;
+}
+.options-button:first-of-type{
+    margin-left: 15%;
+}
+.small{
+    width: 17%;
+}
+.btn.pull-right {
+    margin-left: 2%;
+}
