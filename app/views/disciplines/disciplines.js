@@ -32,4 +32,15 @@
         });
     });
 
+    app.controller('DisciplinesAddController', function ($scope) {
+        $scope.reset = function () {
+            window.history.back();
+        };
+    });
+    app.controller('DisciplinesEditController', function ($scope) {
+        $scope.reset = function () {
+            window.history.back();
+        };
+    });
+
 }());
