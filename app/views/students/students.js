@@ -46,7 +46,7 @@
         });
     });
 
-    app.controller('StudentsAddController', function (UrlResource, $scope, $window) {
+    app.controller('StudentsAddController', function (UrlResource, $scope) {
         var controller = this;
         UrlResource.query({pageUrl: 'courses'}, function (data) {
             var courses = {};
@@ -62,10 +62,13 @@
             });
             controller.specialities = specialities;
         });
-        
+
+        $scope.reset = function () {
+            window.history.back();
+        };
     });
 
-    app.controller('StudentsEditController', function (UrlResource) {
+    app.controller('StudentsEditController', function (UrlResource, $scope) {
         var controller = this;
         UrlResource.query({pageUrl: 'courses'}, function (data) {
             var courses = {};
@@ -81,5 +84,9 @@
             });
             controller.specialities = specialities;
         });
+        $scope.reset = function () {
+            window.history.back();
+        };
+
     });
 }());
