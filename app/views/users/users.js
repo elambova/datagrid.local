@@ -60,9 +60,12 @@
             };
             UrlResource.$save({pageUrl: 'users'}, data);
         };
+        $scope.reset = function () {
+            window.history.back();
+        }
     });
 
-    app.controller('UsersEditController', function (UrlResource) {
+    app.controller('UsersEditController', function (UrlResource, $scope) {
         var controller = this;
         UrlResource.query({pageUrl: 'roles'}, function (data) {
             var roles = {};
@@ -71,5 +74,8 @@
             });
             controller.roles = roles;
         });
+        $scope.reset = function () {
+            window.history.back();
+        }
     });
 }());
