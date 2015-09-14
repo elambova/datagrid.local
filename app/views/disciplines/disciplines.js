@@ -32,14 +32,14 @@
         });
     });
 
-    app.controller('DisciplinesAddController', function ($scope) {
+    app.controller('DisciplinesAddController', function ($scope, $location) {
         $scope.reset = function () {
-            window.history.back();
+            $location.path('/disciplines');
         };
     });
-    app.controller('DisciplinesEditController', function ($scope) {
+    app.controller('DisciplinesEditController', function ($scope, $location) {
         $scope.reset = function () {
-            window.history.back();
+            $location.path('/disciplines');
         };
     });
 

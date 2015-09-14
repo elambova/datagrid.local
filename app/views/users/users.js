@@ -39,7 +39,7 @@
         });
     });
 
-    app.controller('UsersAddController', function (UrlResource, $scope) {
+    app.controller('UsersAddController', function (UrlResource, $scope, $location) {
         var controller = this;
         UrlResource.query({pageUrl: 'roles'}, function (data) {
             var roles = {};
@@ -61,11 +61,11 @@
             UrlResource.$save({pageUrl: 'users'}, data);
         };
         $scope.reset = function () {
-            window.history.back();
+            $location.path('/users');
         }
     });
 
-    app.controller('UsersEditController', function (UrlResource, $scope) {
+    app.controller('UsersEditController', function (UrlResource, $scope, $location) {
         var controller = this;
         UrlResource.query({pageUrl: 'roles'}, function (data) {
             var roles = {};
@@ -75,7 +75,7 @@
             controller.roles = roles;
         });
         $scope.reset = function () {
-            window.history.back();
+            $location.path('/users');
         }
     });
 }());

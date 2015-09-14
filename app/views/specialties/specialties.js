@@ -31,15 +31,15 @@
         });
     });
 
-    app.controller('SpecialtiesAddController', function ($scope) {
+    app.controller('SpecialtiesAddController', function ($scope, $location) {
         $scope.reset = function () {
-            window.history.back();
+            $location.path('/specialties');
         }
     });
 
-    app.controller('SpecialtiesEditController', function ($scope) {
+    app.controller('SpecialtiesEditController', function ($scope, $location) {
         $scope.reset = function () {
-            window.history.back();
+            $location.path('/specialties');
         }
     });
 }());

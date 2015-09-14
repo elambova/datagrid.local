@@ -31,14 +31,14 @@
             controller.courses = data;
         });
     });
-    app.controller('CoursesAddController', function($scope){
-       $scope.reset = function(){
-           window.history.back();
-       };
+    app.controller('CoursesAddController', function ($scope, $location) {
+        $scope.reset = function () {
+            $location.path('/courses');
+        };
     });
-    app.controller('CoursesEditController', function($scope){
-       $scope.reset = function(){
-           window.history.back();
-       };
+    app.controller('CoursesEditController', function ($scope, $location) {
+        $scope.reset = function () {
+            $location.path("/courses");
+        };
     });
 }());
