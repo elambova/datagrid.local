@@ -31,6 +31,15 @@
         });
     });
 
-    app.controller('SpecialtiesAddController', function(UrlResource, $scope){
+    app.controller('SpecialtiesAddController', function ($scope) {
+        $scope.reset = function () {
+            window.history.back();
+        }
+    });
+
+    app.controller('SpecialtiesEditController', function ($scope) {
+        $scope.reset = function () {
+            window.history.back();
+        }
     });
 }());
