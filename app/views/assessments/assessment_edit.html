@@ -4,21 +4,21 @@
         <label for="students" class="col-md-3 text-right">Име:</label>
         <input id="students" class="form-control" type="text" ng-repeat="student in AssessmentsEditCtrl.students"
                value="{{student.firstName + ' ' + student.lastName}}"/>
-        <label class="col-md-3 text-right">Дисциплина:</label>
-        <select class="form-control">
-            <option ng-repeat="subject in AssessmentsEditCtrl.subjects" value="{{subject.id}}">{{subject.name}}
-            </option>
-        </select>
-        <label class="col-md-3 text-right">Хорариум (Л): </label>
-        <input type="text" name="lection" class="form-control small"
+        <label for="subject" class="col-md-3 text-right">Дисциплина:</label>
+        <input id="subject" class="form-control" type="text" ng-repeat="subject in AssessmentsEditCtrl.subjects"
+               value="{{subject.name}}"/>
+        <label for="workloadLectures" class="col-md-3 text-right">Хорариум (Л): </label>
+        <input id="workloadLectures" type="text" name="lection" class="form-control small"
                ng-repeat="subject in AssessmentsEditCtrl.subjects"
                value="{{subject.workloadLectures}}"/>
-        <label class="col-md-3 text-right">Хорариум (У):</label>
-        <input type="text" name="exercise" class="form-control small"
+        <label for="workloadExercises" class="col-md-3 text-right">Хорариум (У):</label>
+        <input id="workloadExercises" type="text" name="exercise" class="form-control small"
                ng-repeat="subject in AssessmentsEditCtrl.subjects"
                value="{{subject.workloadExercises}}"/>
-        <label class="col-md-3 text-right">Оценка:</label>
-        <input type="text" class="form-control small" ng-repeat="subject in AssessmentsEditCtrl.subjects" value="{{subject.assessment}}"/>
+        <label for="assessment" class="col-md-3 text-right">Оценка:</label>
+        <input id="assessment" type="text" class="form-control small"
+               ng-repeat="subject in AssessmentsEditCtrl.subjects"
+               value="{{subject.assessment}}"/>
         <button type="submit" value="Submit" class="btn btn-success pull-right">Редактирай</button>
         <button type="reset" value="Reset" ng-click="reset()" class="btn btn-danger pull-right">Откажи</button>
     </fieldset>
