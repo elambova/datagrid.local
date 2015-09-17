@@ -17,7 +17,7 @@
                 controller: 'StudentsAddController',
                 controllerAs: 'StudentsAddCtrl'
             })
-            .when('/students/edit', {
+            .when('/students/edit?:id', {
                 templateUrl: 'views/students/student_edit.html',
                 controller: 'StudentsEditController',
                 controllerAs: 'StudentsEditCtrl'
@@ -68,21 +68,41 @@
         };
     });
 
-    app.controller('StudentsEditController', function (UrlResource, $scope,$location) {
+    app.controller('StudentsEditController', function (UrlResource, $scope, $location) {
         var controller = this;
-        UrlResource.query({pageUrl: 'courses'}, function (data) {
-            var courses = {};
-            angular.forEach(data, function (course) {
-                courses[course.id] = course;
+        UrlResource.query({pageUrl: 'students'}, function (data) {
+            var students = {};
+
+            angular.forEach(data, function (student) {
+                var studentId = student.id;
+                if ($location.search().id === studentId.toString()) {
+                    students[student.id] = student;
+                    var courseId = student.courseId;
+                    var specialityId = student.specialityId;
+
+                    UrlResource.query({pageUrl: 'courses'}, function (data) {
+                        var courses = {};
+                        angular.forEach(data, function (course) {
+                            if (courseId === course.id) {
+                                courses[student.courseId] = course;
+                            }
+                        });
+                        controller.courses = courses;
+                    });
+
+                    UrlResource.query({pageUrl: 'specialities'}, function (data) {
+                        var specialities = {};
+                        angular.forEach(data, function (speciality) {
+                            if (specialityId === speciality.id) {
+                                specialities[student.specialityId] = speciality;
+                            }
+                        });
+                        controller.specialities = specialities;
+                    });
+
+                }
             });
-            controller.courses = courses;
-        });
-        UrlResource.query({pageUrl: 'specialities'}, function (data) {
-            var specialities = {};
-            angular.forEach(data, function (speciality) {
-                specialities[speciality.id] = speciality;
-            });
-            controller.specialities = specialities;
+            controller.students = students;
         });
         $scope.reset = function () {
             $location.path('/students');
