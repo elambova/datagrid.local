@@ -76,6 +76,7 @@
         });
         $scope.reset = function () {
             $location.path('/users');
+            $location.search('id', null);
         }
     });
 }());

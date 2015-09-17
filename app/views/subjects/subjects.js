@@ -55,6 +55,7 @@
         })
         $scope.reset = function () {
             $location.path('/subjects');
+            $location.search('id', null);
         };
     });
 

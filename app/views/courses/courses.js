@@ -53,6 +53,7 @@
         });
         $scope.reset = function () {
             $location.path("/courses");
+            $location.search('id', null);
         };
     });
 }());

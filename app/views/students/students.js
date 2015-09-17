@@ -86,6 +86,7 @@
         });
         $scope.reset = function () {
             $location.path('/students');
+            $location.search('id', null);
         };
 
     });

@@ -10,7 +10,7 @@
         'myApp.home',
         'myApp.subjects',
         'myApp.students',
-        'myApp.specialties',
+        'myApp.specialities',
         'myApp.users',
         'myApp.version'
     ]);

@@ -116,6 +116,7 @@
         });
         $scope.reset = function () {
             $location.path("/assessments");
+            $location.search('id', null);
         }
     });
 }());
