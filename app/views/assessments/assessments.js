@@ -16,7 +16,7 @@
                 controller: 'AssessmentsAddController',
                 controllerAs: 'AssessmentsAddCtrl'
             })
-            .when('/assessments/edit?:id', {
+            .when('/assessments/edit', {
                 templateUrl: 'views/assessments/assessment_edit.html',
                 controller: 'AssessmentsEditController',
                 controllerAs: 'AssessmentsEditCtrl'
