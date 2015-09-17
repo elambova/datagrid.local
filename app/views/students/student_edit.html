@@ -2,34 +2,42 @@
     <fieldset class="scheduler-border">
         <legend class="scheduler-border">Редактиране на студент</legend>
 
-        <label class="col-md-5 text-right">Собствено име:</label>
-        <input type="text" name="firstName" class="form-control" ng-repeat="student in StudentsEditCtrl.students"
+        <label for="first-name" class="col-md-5 text-right">Собствено име:</label>
+        <input id="first-name" type="text" name="firstName" class="form-control"
+               ng-repeat="student in StudentsEditCtrl.students"
                value="{{student.firstName}}">
 
-        <label class="col-md-5 text-right">Фамилия:</label>
-        <input type="text" name="lastName" class="form-control" ng-repeat="student in StudentsEditCtrl.students"
+        <label for="last-name" class="col-md-5 text-right">Фамилия:</label>
+        <input id="last-name" type="text" name="lastName" class="form-control"
+               ng-repeat="student in StudentsEditCtrl.students"
                value="{{student.lastName}}">
 
-        <label class="col-md-5 text-right">Факултетен номер:</label>
-        <input type="text" name="facultyNumber" class="form-control" ng-repeat="student in StudentsEditCtrl.students"
+        <label for="faculty-number" class="col-md-5 text-right">Факултетен номер:</label>
+        <input id="faculty-number" type="text" name="facultyNumber" class="form-control"
+               ng-repeat="student in StudentsEditCtrl.students"
                value="{{student.facultyNumber}}">
 
-        <label class="col-md-5 text-right">E-mail:</label>
-        <input type="email" name="email" class="form-control" ng-repeat="student in StudentsEditCtrl.students"
+        <label for="email" class="col-md-5 text-right">E-mail:</label>
+        <input id="email" type="email" name="email" class="form-control"
+               ng-repeat="student in StudentsEditCtrl.students"
                value="{{student.email}}">
 
-        <label class="col-md-5 text-right">Курс:</label>
-        <input type="text" name="course" class="form-control" ng-repeat="course in StudentsEditCtrl.courses"
+        <label for="course-name" class="col-md-5 text-right">Курс:</label>
+        <input id="course-name" type="text" name="course" class="form-control"
+               ng-repeat="course in StudentsEditCtrl.courses"
                value="{{course.name}}"/>
 
-        <label class="col-md-5 text-right">Специалност</label>
-        <input name="speciality" class="form-control" ng-repeat="speciality in StudentsEditCtrl.specialities"
+        <label for="speciality-name" class="col-md-5 text-right">Специалност</label>
+        <input id="speciality-name" name="speciality" class="form-control"
+               ng-repeat="speciality in StudentsEditCtrl.specialities"
                value="{{speciality.nameLong}}"/>
 
         <label class="col-md-5 text-right">Форма на обучение:</label>
-        <input name="educationForm" class="form-control" ng-repeat="student in StudentsEditCtrl.students"
-               value="{{student.educationForm}}">
-
+        <select name="educationForm" class="form-control">
+            <option ng-repeat="student in StudentsEditCtrl.students"
+                    value="{{student.educationForm}}">{{student.educationForm}}
+            </option>
+        </select>
         <button type="submit" value="Submit" class="btn btn-success pull-right">Добави</button>
         <button type="reset" value="Reset" ng-click="reset()" class="btn btn-danger pull-right">Откажи</button>
     </fieldset>

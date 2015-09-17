@@ -28,7 +28,11 @@
     app.controller('UsersController', function (UrlResource) {
         var controller = this;
         UrlResource.query({pageUrl: 'users'}, function (data) {
-            controller.users = data;
+            var users = {};
+            angular.forEach(data, function (user) {
+                users[user.id] = user;
+            });
+            controller.users = users;
         });
         UrlResource.query({pageUrl: 'roles'}, function (data) {
             var roles = {};
@@ -67,12 +71,24 @@
 
     app.controller('UsersEditController', function (UrlResource, $scope, $location) {
         var controller = this;
-        UrlResource.query({pageUrl: 'roles'}, function (data) {
-            var roles = {};
-            angular.forEach(data, function (role) {
-                roles[role.id] = role;
+        UrlResource.query({pageUrl: 'users'}, function (data) {
+            var users = {};
+            angular.forEach(data, function (user) {
+                if ($location.search().id === user.id.toString()) {
+                    users[user.id] = user;
+
+                    UrlResource.query({pageUrl: 'roles'}, function (data) {
+                        var roles = {};
+                        angular.forEach(data, function (role) {
+                            if (user.roleId === role.id) {
+                                roles[role.id] = role;
+                            }
+                        });
+                        controller.roles = roles;
+                    });
+                }
             });
-            controller.roles = roles;
+            controller.users = users;
         });
         $scope.reset = function () {
             $location.path('/users');
